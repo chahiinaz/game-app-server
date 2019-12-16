@@ -3,7 +3,7 @@ const router = new Router();
 const User = require("./model");
 const bcrypt = require("bcrypt");
 
-router.post("/signup", (req, res, next) => {
+router.post("/", (req, res, next) => {
   const userToCreate = {
     name: req.body.name,
     password: bcrypt.hashSync(req.body.password, 10)
