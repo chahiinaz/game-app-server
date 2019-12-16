@@ -28,7 +28,7 @@ router.post("/login", (req, res) => {
         else if (bcrypt.compareSync(req.body.password, user.password)) {
           // 3. if the password is correct, return a JWT with the userId of the user (user.id)
           res.send({
-            jwt: toJWT({ userId: entity.id }),
+            jwt: toJWT({ userId: user.id }),
             name: user.name
           });
         } else {
