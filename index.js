@@ -11,7 +11,5 @@ app.use(cors());
 app.use(jsonParser);
 app.use(loginRouter);
 app.use(signUpRouter);
-app.get("/", (req, res) => {
-  res.send("Welcome to our game");
-});
+
 app.listen(port, console.log(`listening to port ${port}`));
