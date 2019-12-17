@@ -14,7 +14,7 @@ router.post("/signup", (req, res, next) => {
   User.create(userToCreate)
     .then(user => {
       const jwt = toJWT({ userId: user.id });
-      res.json({ jwt });
+      res.json({ jwt, name: user.name });
     })
     .catch(error => next(error));
 });
