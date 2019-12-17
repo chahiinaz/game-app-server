@@ -3,7 +3,7 @@ const router = new Router();
 const User = require("./model");
 const bcrypt = require("bcrypt");
 
-router.post("/", (req, res, next) => {
+router.post("/signup", (req, res, next) => {
   console.log("body", req.body);
   const userToCreate = {
     name: req.body.name,
