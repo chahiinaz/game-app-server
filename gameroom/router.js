@@ -18,6 +18,20 @@ function factory(stream) {
       next(error);
     }
   });
+  router.get("/gameroom/:id", async (req, res, next) => {
+    try {
+      const gameroom = await Gameroom.findByPk(req.params.id);
+      const action = {
+        type: "ONE_GAMEROOM",
+        payload: gameroom
+      };
+      const string = JSON.stringify(action);
+      stream.send(string);
+      res.send(gameroom);
+    } catch (error) {
+      next(error);
+    }
+  });
   return router;
 }
 
