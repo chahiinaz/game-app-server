@@ -10,6 +10,7 @@ const Gameroom = require("./gameroom/model");
 const User = require("./user/model");
 const gameroomFactory = require("./gameroom/router");
 const userFactory = require("./user/router");
+const joinFactory = require("./join/router");
 
 const jsonParser = bodyParser.json();
 const app = express();
@@ -29,6 +30,9 @@ app.use(signUpRouter);
 
 const userRouter = userFactory(stream);
 app.use(userRouter);
+
+const joinRouter = joinFactory(stream);
+app.use(joinRouter);
 
 // app.get("/test", (req, res) => {
 //   stream.send("test");
