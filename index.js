@@ -3,11 +3,12 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const Sse = require("json-sse");
 
+const Gameroom = require("./gameroom/model");
+const User = require("./user/model");
+
 const signUpRouter = require("./signup/router");
 const loginRouter = require("./login/router");
-const Gameroom = require("./gameroom/model");
 
-const User = require("./user/model");
 const gameroomFactory = require("./gameroom/router");
 const userFactory = require("./user/router");
 const joinFactory = require("./join/router");
