@@ -5,8 +5,10 @@ const router = new Router();
 const bcrypt = require("bcrypt");
 
 router.post("/login", (req, res) => {
+  console.log("body of login", req.body);
   const name = req.body.name;
   const password = req.body.password;
+
   if (!name || !password) {
     res.status(400).send({
       message: "Please supply a valid name and password"
@@ -29,7 +31,9 @@ router.post("/login", (req, res) => {
           // 3. if the password is correct, return a JWT with the userId of the user (user.id)
           res.send({
             jwt: toJWT({ userId: user.id }),
-            name: user.name
+            name: user.name,
+            id: user.id,
+            
           });
         } else {
           res.status(400).send({
