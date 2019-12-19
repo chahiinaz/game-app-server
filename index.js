@@ -41,7 +41,7 @@ app.use(joinRouter);
 
 app.get("/stream", async (req, res, next) => {
   try {
-    const gamerooms = await Gameroom.findAll();
+    const gamerooms = await Gameroom.findAll({ include: [User] });
 
     const action = {
       type: "ALL_GAMEROOMS",
