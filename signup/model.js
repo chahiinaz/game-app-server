@@ -9,6 +9,12 @@ const User = db.define("user", {
   password: {
     type: Sequelize.STRING,
     allowNull: false
+  },
+  choice: {
+    type: Sequelize.BOOLEAN
+  },
+  points: {
+    type: Sequelize.INTEGER
   }
 });
 
