@@ -26,6 +26,7 @@ function factory(stream) {
         payload: gameroom
       };
       const string = JSON.stringify(action);
+
       stream.send(string);
       res.send(gameroom);
     } catch (error) {
