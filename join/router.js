@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const Gameroom = require("../gameroom/model");
-const User = require("../user/model");
+const User = require("../signup/model");
 
 function factory(stream) {
   const router = new Router();

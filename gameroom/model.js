@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
-const User = require("../user/model");
+const User = require("../signup/model");
 
 const Gameroom = db.define("gameroom", {
   name: {

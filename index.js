@@ -4,13 +4,13 @@ const cors = require("cors");
 const Sse = require("json-sse");
 
 const Gameroom = require("./gameroom/model");
-const User = require("./user/model");
+const User = require("./signup/model");
 
-const signUpRouter = require("./signup/router");
+const signUpFactory = require("./signup/router");
 const loginRouter = require("./login/router");
 
 const gameroomFactory = require("./gameroom/router");
-const userFactory = require("./user/router");
+
 const joinFactory = require("./join/router");
 
 const jsonParser = bodyParser.json();
@@ -27,10 +27,9 @@ const gameroomRouter = gameroomFactory(stream);
 app.use(gameroomRouter);
 
 app.use(loginRouter);
-app.use(signUpRouter);
 
-const userRouter = userFactory(stream);
-app.use(userRouter);
+const signUpRouter = signUpFactory(stream);
+app.use(signUpRouter);
 
 const joinRouter = joinFactory(stream);
 app.use(joinRouter);
