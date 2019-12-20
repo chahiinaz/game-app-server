@@ -16,7 +16,7 @@ function factory(stream) {
 
       if (player1.choice === null || player2.choice === null) return;
 
-      if (player1.choice === player2.choice && player1.choice) {
+      if ((player1.choice === player2.choice) === true) {
         player1.points += 1;
         player2.points += 1;
       } else if (player1.choice === player2.choice && !player1.choice) {
