@@ -29,7 +29,8 @@ router.post("/login", (req, res) => {
           // 3. if the password is correct, return a JWT with the userId of the user (user.id)
           res.send({
             jwt: toJWT({ userId: user.id }),
-            name: user.name
+            name: user.name,
+            id: user.id
           });
         } else {
           res.status(400).send({
