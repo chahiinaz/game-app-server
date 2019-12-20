@@ -7,7 +7,7 @@ function factory(stream) {
   router.put("/choice", async (req, res, next) => {
     try {
       const user = await User.findByPk(req.body.userId);
-      console.log("user test:", user);
+      //console.log("user test:", user);
       await user.update({ choice: req.body.choice });
 
       const gameroom = await GameRoom.findByPk(user.gameroomId, {
@@ -22,12 +22,12 @@ function factory(stream) {
       if ((player1.choice === player2.choice) === true) {
         player1.points += 1;
         player2.points += 1;
-      } else if (player1.choice === player2.choice && !player1.choice) {
+      } else if ((player1.choice === player2.choice) === false) {
         player1.points += 2;
         player2.points += 2;
-      } else if (player1.choice && !player2.choice) {
+      } else if (player1.choice === true && player2.choice === false) {
         player1.points += 3;
-      } else if (player2.choice && !player1.choice) {
+      } else if (player2.choice === true && player1.choice === false) {
         player2.points += 3;
       }
 
