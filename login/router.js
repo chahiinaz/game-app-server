@@ -5,8 +5,10 @@ const router = new Router();
 const bcrypt = require("bcrypt");
 
 router.post("/login", (req, res) => {
+  console.log("body of login", req.body);
   const name = req.body.name;
   const password = req.body.password;
+
   if (!name || !password) {
     res.status(400).send({
       message: "Please supply a valid name and password"
