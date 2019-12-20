@@ -32,8 +32,7 @@ router.post("/login", (req, res) => {
           res.send({
             jwt: toJWT({ userId: user.id }),
             name: user.name,
-            id: user.id,
-            
+            id: user.id
           });
         } else {
           res.status(400).send({

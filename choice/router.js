@@ -6,8 +6,11 @@ function factory(stream) {
   const router = new Router();
   router.put("/choice", async (req, res, next) => {
     try {
-      await req.user.update({ choice: req.body.choice });
-      const gameroom = await GameRoom.findByPk(user.gameId, {
+      const user = await User.findByPk(req.body.userId);
+      console.log("user test:", user);
+      await user.update({ choice: req.body.choice });
+
+      const gameroom = await GameRoom.findByPk(user.gameroomId, {
         include: [User]
       });
       const usersInGame = gameroom.users;
